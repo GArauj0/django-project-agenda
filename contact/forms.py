@@ -2,6 +2,7 @@ from utils.validators import phone_validator
 from django import forms
 from . import models
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
 
 
 class ContactForm(forms.ModelForm):
@@ -33,3 +34,6 @@ class ContactForm(forms.ModelForm):
             )
 
         return phone
+    
+class RegisterForm(UserCreationForm):
+    ...
