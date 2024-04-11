@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from contact.forms import RegisterForm
+from contact.forms import RegisterForm, RegisterUpdateForm
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
@@ -15,6 +15,30 @@ def register(request):
             form.save()
             messages.success(request, 'User registered successfully.')
             return redirect('contact:login')
+
+    return render(
+        request,
+        'contact/register.html',
+        {
+            'form': form,
+        }
+    )
+
+def user_update(request):
+    form = RegisterUpdateForm(instance=request.user)
+
+    if request.method == 'POST':
+        form = RegisterUpdateForm(data=request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return render(
+                request,
+                'contact/register.html',
+                {
+                    'form': form,
+                }
+            )         
+    
 
     return render(
         request,
