@@ -31,18 +31,12 @@ def user_update(request):
         form = RegisterUpdateForm(data=request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return render(
-                request,
-                'contact/register.html',
-                {
-                    'form': form,
-                }
-            )         
+            return redirect('contact:user_update')    
     
 
     return render(
         request,
-        'contact/register.html',
+        'contact/user_update.html',
         {
             'form': form,
         }
