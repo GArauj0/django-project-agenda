@@ -1,5 +1,5 @@
 This is a small website project made with Django for training purposes.
-The functionalities are as fallows.
+The functionalities are as follows.
 
 - It's an Agenda in which you can create your own contacts and access or modify them.
 - There's a user based system.
