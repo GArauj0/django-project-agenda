@@ -16,7 +16,7 @@ if __name__ == "__main__":
     (21)9 1234-1234
     """
 
-    for phone in phone_validator(phones): # type: ignore
+    for phone in phone_validator.findall(phones):
         print(phone)
 
         
